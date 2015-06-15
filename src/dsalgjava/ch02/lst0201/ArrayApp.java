@@ -3,7 +3,7 @@ package dsalgjava.ch02.lst0201;
 public class ArrayApp {
 
 	public static void main(String[] args) {
-		long[] arr = new long[100];
+		long[] arr = new long[10];
 		
 		arr[0] = 77;
 		arr[1] = 99;
@@ -42,7 +42,7 @@ public class ArrayApp {
 				break;
 			}
 		}
-		for (int k = j; k < nElems; k++) {
+		for (int k = j; k < nElems - 1; k++) { // Fixed Error: (was nElems, must be nElems - 1)
 			arr[k] = arr[k + 1];
 		}
 		nElems--;
