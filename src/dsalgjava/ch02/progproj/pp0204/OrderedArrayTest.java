@@ -19,7 +19,6 @@ public class OrderedArrayTest {
 
         testInsert(new OrderedArray(SIZE, new long[] { 2, 4, 8, 11 }),
                 new OrderedArray(SIZE, new long[] { 2, 4, 8, 11, 12 }), 12);
-
     }
 
     private static void testInsert(OrderedArray initial, OrderedArray expected,
