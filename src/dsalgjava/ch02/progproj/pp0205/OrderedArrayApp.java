@@ -1,6 +1,6 @@
 package dsalgjava.ch02.progproj.pp0205;
 
-import dsalgjava.ch02.progproj.tools.RandomArray;
+import dsalgjava.tools.RandomArray;
 
 public class OrderedArrayApp {
 
