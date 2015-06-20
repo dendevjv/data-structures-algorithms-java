@@ -16,6 +16,14 @@ public abstract class ArrayBase {
         nElems = array.length;
     }
     
+    public long get(int i) {
+        return a[i];
+    }
+    
+    public int getSize() {
+        return nElems;
+    }
+    
     public long[] cloneInnerArray() {
         return Arrays.copyOf(a, nElems);
     }
