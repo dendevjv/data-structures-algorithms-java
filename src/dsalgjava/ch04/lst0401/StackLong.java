@@ -22,4 +22,12 @@ public class StackLong extends StackBase {
         return stackArr[top];
     }
     
+    public void display(String text) {
+        System.out.print(text);
+        System.out.print("Stack (bottom-->top): ");
+        for (int i = 0; i < size(); i++) {
+            System.out.print(stackArr[i] + " ");
+        }
+        System.out.println();
+    }
 }
