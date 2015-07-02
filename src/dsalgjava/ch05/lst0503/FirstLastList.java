@@ -1,7 +1,7 @@
 package dsalgjava.ch05.lst0503;
 
 public class FirstLastList {
-    private Link first;
+    protected Link first;
     private Link last;
     
     public FirstLastList() {
