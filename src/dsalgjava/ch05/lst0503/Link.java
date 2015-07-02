@@ -11,4 +11,9 @@ public class Link {
     public void display() {
         System.out.print(data + " ");
     }
+    
+    @Override
+    public String toString() {
+        return Long.toString(data);
+    }
 }
