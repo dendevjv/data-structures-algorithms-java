@@ -36,5 +36,48 @@ public class ListIterator {
 		return current;
 	}
 	
+	/**
+	 * Insert after current link.
+	 */
+	public void insertAfter(Link link) {
+	    if (list.isEmpty()) {
+	        list.insertFirst(link);
+	        reset();
+	    } else if (current.next == null) {
+	        list.insertLast(link);
+	        nextLink();
+	    } else {
+    	    link.next = current.next;
+    	    current.next = link;
+    	    nextLink();
+	    }
+	}
 	
+	public void insertBefore(Link link) {
+	    if (list.isEmpty() || current == list.getFirst()) {
+            list.insertFirst(link);
+            reset();
+        } else {
+            previous.next = link;
+            link.next = current;
+            current = link;
+        }
+	}
+	
+	public Link deleteCurrent() {
+	    Link tmp;
+	    if (previous == null) {
+	        tmp = list.deleteFirst();
+	        reset();
+	        return tmp;
+	    }
+	    tmp = current;
+	    previous.next = current.next;
+	    if (atEnd()) {
+	        reset();
+	    } else {
+	        current = current.next;
+	    }
+	    return tmp;
+	}
 }

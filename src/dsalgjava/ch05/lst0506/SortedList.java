@@ -23,7 +23,7 @@ public class SortedList {
             current = current.next;
         }
         link.next = current;
-        if (prev == null) { //
+        if (prev == null) {
             first = link;
         } else {
             prev.next = link;
@@ -40,13 +40,17 @@ public class SortedList {
         return first == null;
     }
     
-    public void display() {
-        System.out.print("List (first-->last): ");
+    public void display(String prefixMessage) {
+        System.out.print(prefixMessage);
         Link current = first;
         while (current != null) {
             current.display();
             current = current.next;
         }
         System.out.println();
+    }
+    
+    public void display() {
+        display("List (first-->last): ");
     }
 }

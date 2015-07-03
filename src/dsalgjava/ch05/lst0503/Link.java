@@ -1,5 +1,9 @@
 package dsalgjava.ch05.lst0503;
 
+/**
+ * Contains data as one <code>long</code> instance variable and
+ * single link to next element in a linked list.
+ */
 public class Link {
     public long data;
     public Link next;

@@ -13,12 +13,20 @@ public class ListIteratorApp {
         list.insertFirst(new Link(50));
 
         ListIterator iter1 = list.getIterator();
+        iter1.insertAfter(new Link(40));
+        iter1.reset();
+        iter1.insertBefore(new Link(60));
 
         Scanner in = new Scanner(System.in);
         outer: while (true) {
             System.out.print("Enter first letter of show, reset, "
                     + "next, get, before, after, delete, quit: ");
-            char ch = in.nextLine().charAt(0);
+            String s = in.nextLine();
+            if ("".equals(s)) {
+                break;
+            }
+            char ch = s.charAt(0);
+            long v;
             switch (ch) {
             case 'q':
                 System.out.println("quit");
@@ -49,9 +57,16 @@ public class ListIteratorApp {
                 }
                 break;
             case 'b':
+                v = getLong(in);
+                iter1.insertBefore(new Link(v));
+                break;
             case 'a':
+                v = getLong(in);
+                iter1.insertAfter(new Link(v));
+                break;
             case 'd':
-                System.out.println("Not implemented yet");
+                Link link = iter1.deleteCurrent();
+                System.out.println("Deleted " + link.data);
                 break;
             default:
                 System.out.println("Invalid entry");
@@ -60,4 +75,12 @@ public class ListIteratorApp {
         in.close();
     }
 
+    private static long getLong(Scanner in) {
+        System.out.print("Enter value to insert: ");
+        long v = in.nextLong();
+        in.nextLine(); // eat lf
+        return v;
+    }
+
+    
 }
