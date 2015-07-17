@@ -1,4 +1,4 @@
-package dsalgjava.ch06.knapsack;
+package dsalgjava.ch06.research.knapsack;
 
 public class Sack {
     private int[] items;
