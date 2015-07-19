@@ -1,5 +1,7 @@
 package dsalgjava.ch07.lst0702;
 
+import java.util.Scanner;
+
 import dsalgjava.tools.RandomUtil;
 
 public class PartitionApp {
@@ -11,7 +13,10 @@ public class PartitionApp {
         RandomUtil.fill(arr, 200);
         arr.display();
 
-        long pivot = 99;
+        Scanner in = new Scanner(System.in);
+        System.out.print("Pivot: ");
+        long pivot = in.nextLong();
+        in.close();
         System.out.println("Pivot is " + pivot);
         int partDex = arr.partitionIt2(0, arr.getSize() - 1, pivot);
         
