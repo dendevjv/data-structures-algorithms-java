@@ -46,14 +46,39 @@ public abstract class ArrayBase {
     public void displayIndexed() {
         StringBuilder line1 = new StringBuilder();
         StringBuilder line2 = new StringBuilder();
+        int maxLength = numberLength(maximum());
+        String formatStr = "%" + (1 + maxLength) + "d";
         for (int j = 0; j < nElems; j++) {
-            line1.append(String.format("%" + ((int)Math.log10(a[j]) + 1) + "d", j));
-            line1.append(" ");
-            line2.append(a[j]);
-            line2.append(" ");
+            line1.append(String.format(formatStr, j));
+            line2.append(String.format(formatStr, a[j]));
         }
         System.out.println(line1);
         System.out.println(line2);
+    }
+    
+    private static int numberLength(long v) {
+        if (v == 0) {
+            return 1;
+        }
+        if (v < 0) {
+            return numberLength(-v) + 1;
+        }
+        int len = 0;
+        while (v != 0) {
+            v /= 10;
+            len++;
+        }
+        return len;
+    }
+    
+    private long maximum() {
+        long max = Long.MIN_VALUE;
+        for (long n : a) {
+            if (n > max) {
+                max = n;
+            }
+        }
+        return max;
     }
     
     public abstract void insert(long value);

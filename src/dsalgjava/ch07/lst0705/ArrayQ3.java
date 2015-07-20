@@ -6,11 +6,12 @@ import dsalgjava.ch07.lst0704.ArrayQ2;
  * Quick sort using insertion sort for small partitions.
  */
 public class ArrayQ3 extends ArrayQ2 {
+    private static final int MIN_CUT_OFF = 3;
     private int cutOff;
 
     public ArrayQ3(int maxSize, int cutOff) {
         super(maxSize);
-        this.cutOff = cutOff;
+        this.cutOff = (cutOff >= MIN_CUT_OFF) ? cutOff : MIN_CUT_OFF;
     }
 
     public ArrayQ3(long[] values, int cutOff) {
