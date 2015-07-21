@@ -7,6 +7,10 @@ public class ArrayPar extends ArrayNonSorted {
     public ArrayPar(int maxSize) {
         super(maxSize);
     }
+    
+    public ArrayPar(long[] values) {
+        super(values);
+    }
 
     /* Mine first attempt. */
     public int partitionIt(int left, int right, long pivot) {
