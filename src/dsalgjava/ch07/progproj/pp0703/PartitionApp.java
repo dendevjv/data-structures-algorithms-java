@@ -1,6 +1,6 @@
 package dsalgjava.ch07.progproj.pp0703;
 
-import dsalgjava.tools.RandomUtil;
+//import dsalgjava.tools.RandomUtil;
 
 /*
  This sequence may cause problem:
@@ -23,10 +23,6 @@ public class PartitionApp {
         for (int i = 0; i < ss.length; i++) {
             System.out.println("Test #" + (i+1));
             ArrayMedian arr = new ArrayMedian(ss[i]);
-            // int maxSize = 16;
-            // ArrayMedian arr = new ArrayMedian(maxSize);
-            //
-            // RandomUtil.fill(arr, maxSize);
             arr.displayIndexed();
 
             int median = arr.partitionAndFindMedian();
@@ -34,6 +30,11 @@ public class PartitionApp {
             System.out.println("Median is at index " + median);
             arr.displayIndexed();
         }
+        
+        // int maxSize = 16;
+        // ArrayMedian arr = new ArrayMedian(maxSize);
+        //
+        // RandomUtil.fill(arr, maxSize);
     }
 
 }

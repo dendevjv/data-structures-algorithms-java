@@ -71,7 +71,7 @@ public abstract class ArrayBase {
         return len;
     }
     
-    private long maximum() {
+    public long maximum() {
         long max = Long.MIN_VALUE;
         for (long n : a) {
             if (n > max) {
