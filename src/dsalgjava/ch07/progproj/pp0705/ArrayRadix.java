@@ -18,14 +18,13 @@ public class ArrayRadix extends ArrayNonSorted {
     }
 
     public void radixSort() {
-        int bitsLength = findMaxBits();
         long[] src = a;
         long[] dst = new long[a.length];
         long[] t;
         long mask = 1;
         int k;
 //        int bits = Long.SIZE;
-        int bits = bitsLength;
+        int bits = findMaxBits();;
         for (int i = 0; i < bits; i++) {
             k = 0;
             for (int j = 0; j < nElems; j++) {

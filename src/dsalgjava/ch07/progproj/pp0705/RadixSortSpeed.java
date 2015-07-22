@@ -5,7 +5,7 @@ import java.util.Scanner;
 //import dsalgjava.ch03.lst0303.ArrayIns;
 import dsalgjava.ch07.lst0703.ArrayQ;
 import dsalgjava.ch07.lst0705.ArrayQ3;
-//import dsalgjava.tools.CheckArray;
+import dsalgjava.tools.CheckArray;
 import dsalgjava.tools.RandomArray;
 
 public class RadixSortSpeed {
@@ -43,8 +43,8 @@ public class RadixSortSpeed {
         finish = System.currentTimeMillis();
         elapsed("Radix sort: ", start, finish);
         
-//        System.out.println("\nCheck:");
-//        System.out.println("Non decreasing: " + CheckArray.isNonDecreasing(arrRadix.cloneInnerArray()));
+        System.out.println("\nCheck:");
+        System.out.println("Non decreasing: " + CheckArray.isNonDecreasing(arrRadix.cloneInnerArray()));
     }
 
     private static void elapsed(String s, long start, long finish) {
