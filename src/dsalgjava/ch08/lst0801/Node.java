@@ -26,7 +26,7 @@ public class Node {
     }
     
     public void display() {
-        System.out.println(toString());
+        System.out.print(toString());
     }
     
     public void displayRecursiveInOrder() {

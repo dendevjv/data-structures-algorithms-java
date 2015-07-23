@@ -156,32 +156,32 @@ public class Tree {
     }
     
     public void displayTree() {
-        NodeStack globalStack = new NodeStack();
-        globalStack.push(root);
+        NodeStack currentLine = new NodeStack();
+        currentLine.push(root);
         int nBlanks = 32;
         boolean isRowEmpty = false;
         System.out.println("......................................................");
         while (!isRowEmpty) {
-            NodeStack localStack = new NodeStack();
+            NodeStack nextLine = new NodeStack();
             isRowEmpty = true;
             
             for (int j = 0; j < nBlanks; j++) {
                 System.out.print(' ');
             }
-            while (!globalStack.isEmpty()) {
-                Node temp = globalStack.pop();
+            while (!currentLine.isEmpty()) {
+                Node temp = currentLine.pop();
                 if (temp != null) {
                     System.out.print(temp.iData);
-                    localStack.push(temp.left);
-                    localStack.push(temp.right);
+                    nextLine.push(temp.left);
+                    nextLine.push(temp.right);
                     
                     if (temp.left != null || temp.right != null) {
                         isRowEmpty = false;
                     }
                 } else {
                     System.out.print("--");
-                    localStack.push(null);
-                    localStack.push(null);
+                    nextLine.push(null);
+                    nextLine.push(null);
                 }
                 for (int j = 0; j < nBlanks * 2 - 2; j++) {
                     System.out.print(' ');
@@ -189,8 +189,8 @@ public class Tree {
             }
             System.out.println();
             nBlanks /= 2;
-            while (!localStack.isEmpty()) {
-                globalStack.push(localStack.pop());
+            while (!nextLine.isEmpty()) {
+                currentLine.push(nextLine.pop());
             }
             System.out.println("......................................................");
         }
