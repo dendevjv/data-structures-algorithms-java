@@ -9,6 +9,11 @@ public class NodeStack {
         size = 0;
     }
     
+    NodeStack(int maxSize) {
+        arr = new Node[maxSize];
+        size = 0;
+    }
+    
     void push(Node n) {
         arr[size++] = n;
     }
@@ -19,6 +24,20 @@ public class NodeStack {
     
     boolean isEmpty() {
         return size == 0;
+    }
+    
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for  (int j = 0; j < size; j++) {
+            if (j > 0) {
+                sb.append(", ");
+            }
+            sb.append(arr[j]);
+        }
+        sb.append("]");
+        return sb.toString();
     }
 
     /**

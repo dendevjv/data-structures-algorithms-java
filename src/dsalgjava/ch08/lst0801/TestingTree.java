@@ -1,8 +1,8 @@
 package dsalgjava.ch08.lst0801;
 
-import java.util.Scanner;
+//import java.util.Scanner;
 
-import dsalgjava.ch08.lst0801.Tree.TraverseType;
+//import dsalgjava.ch08.lst0801.Tree.TraverseType;
 
 public class TestingTree {
 
