@@ -5,11 +5,11 @@ public class CharNode {
     public CharNode left;
     public CharNode right;
     
-    CharNode() {
+    public CharNode() {
         character = null;
     }
     
-    CharNode(char ch) {
+    public CharNode(char ch) {
         character = Character.valueOf(ch);
     }
     

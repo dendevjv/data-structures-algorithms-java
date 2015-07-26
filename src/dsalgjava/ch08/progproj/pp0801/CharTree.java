@@ -11,13 +11,17 @@ import java.util.Arrays;
  every parent node has exactly two children.
  */
 public class CharTree {
-    CharNode root;
+    protected CharNode root;
 
-    CharTree() {
+    public CharTree() {
         root = null;
     }
 
-    CharTree(String charStr) {
+    public CharTree(String charStr) {
+        populateTree(charStr);
+    }
+    
+    protected void populateTree(String charStr) {
         CharNode[] na = strToNodes(charStr);
 
         CharNode leftNode = new CharNode();
@@ -36,7 +40,7 @@ public class CharTree {
         root = leftNode;
     }
 
-    private CharNode[] strToNodes(String charStr) {
+    protected CharNode[] strToNodes(String charStr) {
         CharNode[] a = new CharNode[charStr.length()];
         for (int j = 0; j < charStr.length(); j++) {
             a[j] = new CharNode(charStr.charAt(j));
@@ -63,7 +67,7 @@ public class CharTree {
         }
     }
 
-    void displayTree() {
+    public void displayTree() {
         int rows = getNumRows();
         int numSpaces = (int) (Math.pow(2, rows - 1)) - 1;
         boolean nextRow = true;
@@ -111,7 +115,8 @@ public class CharTree {
         int rowsRight = 0;
         if (n.left != null) {
             rowsLeft = countRows(n.left);
-        } else {
+        }
+        if (n.right != null) {
             rowsRight = countRows(n.right);
         }
         int rows = rowsLeft > rowsRight ? rowsLeft : rowsRight;

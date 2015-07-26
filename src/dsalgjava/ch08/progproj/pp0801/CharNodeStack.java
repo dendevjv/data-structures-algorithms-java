@@ -4,20 +4,20 @@ public class CharNodeStack {
     private CharNode[] a;
     private int size;
     
-    CharNodeStack(int maxSize) {
+    public CharNodeStack(int maxSize) {
         a = new CharNode[maxSize];
         size = 0;
     }
     
-    void push(CharNode n) {
+    public void push(CharNode n) {
         a[size++] = n;
     }
     
-    CharNode pop() {
+    public CharNode pop() {
         return a[--size];
     }
     
-    boolean isEmpty() {
+    public boolean isEmpty() {
         return size == 0;
     }
 }
