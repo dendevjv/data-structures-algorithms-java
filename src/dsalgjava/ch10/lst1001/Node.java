@@ -2,11 +2,12 @@ package dsalgjava.ch10.lst1001;
 
 public class Node {
     private static final int ORDER = 4;
+    public static final int MAX_NUM_ITEMS = ORDER - 1;
     
     private int numItems;
     private Node parent;
     private Node[] childArray = new Node[ORDER];
-    private DataItem[] itemArray = new DataItem[ORDER - 1];
+    private DataItem[] itemArray = new DataItem[MAX_NUM_ITEMS];
     
     public void connectChild(int childNum, Node child) {
         childArray[childNum] = child;
@@ -42,7 +43,7 @@ public class Node {
     }
     
     public boolean isFull() {
-        return numItems == ORDER - 1;
+        return numItems == MAX_NUM_ITEMS;
     }
     
     /**
@@ -51,7 +52,7 @@ public class Node {
      * @return index of found item or -1
      */
     public int findItem(long key) {
-        for (int j = 0; j < ORDER - 1; j++) {
+        for (int j = 0; j < itemArray.length; j++) {
             if (itemArray[j] == null) {
                 break;
             } else if (itemArray[j].dData == key) {
@@ -70,7 +71,7 @@ public class Node {
         numItems++;
         long newKey = newItem.dData;
         
-        for (int j = ORDER - 2; j >= 0; j--) {
+        for (int j = itemArray.length - 1; j >= 0; j--) {
             if (itemArray[j] == null) {
                 continue;
             } else {

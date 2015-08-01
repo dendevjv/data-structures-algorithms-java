@@ -1,7 +1,7 @@
 package dsalgjava.ch10.lst1001;
 
 public class Tree234 {
-    private Node root = new Node();
+    protected Node root = new Node();
 
     public int find(long key) {
         Node curNode = root;
