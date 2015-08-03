@@ -1,4 +1,6 @@
-# "Data Structures &amp; Algorithms in Java". Examples and exercises.
+# "Data Structures &amp; Algorithms in Java". 
+
+## Examples and exercises.
 
 Chapter 2 - Arrays (ordered arrays, Big O Notation)
 
