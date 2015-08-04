@@ -1,23 +1,20 @@
-package dsalgjava.ch11.shared;
+package dsalgjava.ch11.lst1103;
 
 import java.util.Scanner;
 
-public class HashTableBaseApp {
+public class HashTableChainApp {
     private static Scanner in = new Scanner(System.in);
-    private HashTableBase hashTable;
-    
-    public HashTableBaseApp(HashTableBase hashTable) {
-        this.hashTable = hashTable;
-    }
-    
-    public void doApp() {
-        DataItem item;
+
+    public static void main(String[] args) {
+        Link link;
         int aKey, size, n, keysPerCell;
+        
+        size = getInt("Enter size of hash table: ");
+        HashTableChain hashTable = new HashTableChain(size);
 
         n = getInt("Enter initial number of items: ");
-        keysPerCell = 10;
+        keysPerCell = 100;
 
-        size = hashTable.arraySize;
         for (int j = 0; j < n; j++) {
             aKey = (int) (Math.random() * keysPerCell * size);
             hashTable.insert(aKey);
@@ -39,8 +36,8 @@ public class HashTableBaseApp {
                 break;
             case 'f':
                 aKey = getInt("Enter key value to find: ");
-                item = hashTable.find(aKey);
-                if (item != null) {
+                link = hashTable.find(aKey);
+                if (link != null) {
                     System.out.println("Found " + aKey);
                 } else {
                     System.out.println("Could not find " + aKey);
@@ -57,7 +54,7 @@ public class HashTableBaseApp {
 
         in.close();
     }
-    
+
     private static char getChar(String prompt) {
         System.out.print(prompt);
         String s = in.nextLine();
