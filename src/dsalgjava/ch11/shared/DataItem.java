@@ -1,4 +1,4 @@
-package dsalgjava.ch11.lst1101;
+package dsalgjava.ch11.shared;
 
 public class DataItem {
     private int iData;
