@@ -58,7 +58,7 @@ public class HashTableBaseApp {
         in.close();
     }
     
-    private static char getChar(String prompt) {
+    public static char getChar(String prompt) {
         System.out.print(prompt);
         String s = in.nextLine();
         if (s.length() > 0) {

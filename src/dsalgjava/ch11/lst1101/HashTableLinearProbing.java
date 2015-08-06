@@ -9,7 +9,7 @@ public class HashTableLinearProbing extends HashTableBase {
         super(size);
     }
     
-    private int hashFunc(int key) {
+    protected int hashFunc(int key) {
         return key % arraySize;
     }
     

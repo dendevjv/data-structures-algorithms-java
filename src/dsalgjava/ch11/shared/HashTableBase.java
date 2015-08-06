@@ -11,6 +11,10 @@ public abstract class HashTableBase {
         nonItem = new DataItem(-1);
     }
     
+    public int getArraySize() {
+        return arraySize;
+    }
+    
     public void display() {
         System.out.print("Table: ");
         for (int j = 0; j < arraySize; j++) {
