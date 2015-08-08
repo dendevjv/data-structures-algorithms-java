@@ -2,7 +2,7 @@ package dsalgjava.ch11.progproj.pp1105;
 
 import java.util.Scanner;
 
-import dsalgjava.ch11.shared.HashTableBaseApp;
+import dsalgjava.tools.Input;
 
 public class HashTableBinaryTreesApp {
     private static Scanner in = new Scanner(System.in);
@@ -11,11 +11,11 @@ public class HashTableBinaryTreesApp {
         HtbtNode node;
         int aKey, size, n, keysPerCell;
         
-        size = HashTableBaseApp.getInt("Enter size of hash table: ");
+        size = Input.getInt("Enter size of hash table: ");
         
         HashTableBinaryTrees hashTable = new HashTableBinaryTrees(size);
 
-        n = HashTableBaseApp.getInt("Enter initial number of items: ");
+        n = Input.getInt("Enter initial number of items: ");
         keysPerCell = 10;
 
         for (int j = 0; j < n; j++) {
@@ -24,17 +24,17 @@ public class HashTableBinaryTreesApp {
         }
 
         outer: while (true) {
-            char choice = HashTableBaseApp.getChar("Enter first letter of show, insert, or find: ");
+            char choice = Input.getChar("Enter first letter of show, insert, or find: ");
             switch (choice) {
             case 's':
                 hashTable.display();
                 break;
             case 'i':
-                aKey = HashTableBaseApp.getInt("Enter key value to insert: ");
+                aKey = Input.getInt("Enter key value to insert: ");
                 hashTable.insert(aKey);
                 break;
             case 'f':
-                aKey = HashTableBaseApp.getInt("Enter key value to find: ");
+                aKey = Input.getInt("Enter key value to find: ");
                 node = hashTable.find(aKey);
                 if (node != null) {
                     System.out.println("Found " + aKey);

@@ -1,9 +1,8 @@
 package dsalgjava.ch11.shared;
 
-import java.util.Scanner;
+import dsalgjava.tools.Input;
 
 public class HashTableBaseApp {
-    private static Scanner in = new Scanner(System.in);
     private HashTableBase hashTable;
     
     public HashTableBaseApp(HashTableBase hashTable) {
@@ -14,7 +13,7 @@ public class HashTableBaseApp {
         DataItem item;
         int aKey, size, n, keysPerCell;
 
-        n = getInt("Enter initial number of items: ");
+        n = Input.getInt("Enter initial number of items: ");
         keysPerCell = 10;
 
         size = hashTable.arraySize;
@@ -24,21 +23,21 @@ public class HashTableBaseApp {
         }
 
         outer: while (true) {
-            char choice = getChar("Enter first letter of show, insert, delete, or find: ");
+            char choice = Input.getChar("Enter first letter of show, insert, delete, or find: ");
             switch (choice) {
             case 's':
                 hashTable.display();
                 break;
             case 'i':
-                aKey = getInt("Enter key value to insert: ");
+                aKey = Input.getInt("Enter key value to insert: ");
                 hashTable.insert(aKey);
                 break;
             case 'd':
-                aKey = getInt("Enter key value to delete: ");
+                aKey = Input.getInt("Enter key value to delete: ");
                 hashTable.delete(aKey);
                 break;
             case 'f':
-                aKey = getInt("Enter key value to find: ");
+                aKey = Input.getInt("Enter key value to find: ");
                 item = hashTable.find(aKey);
                 if (item != null) {
                     System.out.println("Found " + aKey);
@@ -54,24 +53,5 @@ public class HashTableBaseApp {
                 break;
             } // end switch
         } // end while
-
-        in.close();
-    }
-    
-    public static char getChar(String prompt) {
-        System.out.print(prompt);
-        String s = in.nextLine();
-        if (s.length() > 0) {
-            return s.charAt(0);
-        } else {
-            return 0;
-        }
-    }
-
-    public static int getInt(String prompt) {
-        System.out.print(prompt);
-        int n = in.nextInt();
-        in.nextLine();
-        return n;
     }
 }
