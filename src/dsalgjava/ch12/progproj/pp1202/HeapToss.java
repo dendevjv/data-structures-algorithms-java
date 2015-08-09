@@ -1,26 +1,44 @@
-package dsalgjava.ch12.lst1201;
+package dsalgjava.ch12.progproj.pp1202;
 
 import dsalgjava.ch12.shared.HpNode;
 
-public class Heap {
+public class HeapToss {
     protected HpNode[] heapArray;
     protected int maxSize;
     protected int size;
     
-    public Heap(int maxSize) {
+    public HeapToss(int maxSize) {
         this.maxSize = maxSize;
         heapArray = new HpNode[maxSize];
         size = 0;
     }
     
     public boolean insert(int key) {
-        if (isFull()) {
+        if (size == maxSize) {
             return false;
         }
         HpNode n = new HpNode(key);
         heapArray[size] = n;
         trickleUp(size++);
         return true;
+    }
+    
+    /**
+     * Adds a new node to the heap without ensuring the heap condition.
+     * The heap condition must be restored with method <code>restoreHeap()</code>. 
+     */
+    public boolean toss(int key) {
+        if (size == maxSize) {
+            return false;
+        }
+        heapArray[size++] = new HpNode(key);
+        return true;
+    }
+    
+    public void restoreHeap() {
+        for (int i = (size - 1) / 2; i >= 0; i--) {
+            trickleDown(i);
+        }
     }
     
     public HpNode remove() {
@@ -31,10 +49,6 @@ public class Heap {
         heapArray[0] = heapArray[--size];
         trickleDown(0);
         return root;
-    }
- 
-    public int peekMinimum() {
-        return heapArray[0].getKey();
     }
     
     public boolean change(int index, int newValue) {
@@ -153,9 +167,5 @@ public class Heap {
 
     public boolean isEmpty() {
         return size == 0;
-    }
-
-    public boolean isFull() {
-        return size == maxSize;
     }
 }

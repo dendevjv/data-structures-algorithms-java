@@ -20,3 +20,6 @@ Chapter 9 - Red-Black Trees
 
 Chapter 10 - 2-3-4 Trees and External Storage (2-3-4 trees, 2-3 trees, b-trees, indexing)
 
+Chapter 11 - Hash Tables
+
+Chapter 12 - Heaps

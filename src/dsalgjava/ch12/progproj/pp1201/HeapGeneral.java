@@ -1,20 +1,24 @@
-package dsalgjava.ch12.lst1201;
+package dsalgjava.ch12.progproj.pp1201;
+
+import java.util.Comparator;
 
 import dsalgjava.ch12.shared.HpNode;
 
-public class Heap {
+public class HeapGeneral {
     protected HpNode[] heapArray;
     protected int maxSize;
     protected int size;
+    private Comparator<HpNode> comparator;
     
-    public Heap(int maxSize) {
+    public HeapGeneral(int maxSize, Comparator<HpNode> comparator) {
         this.maxSize = maxSize;
+        this.comparator = comparator;
         heapArray = new HpNode[maxSize];
         size = 0;
     }
     
     public boolean insert(int key) {
-        if (isFull()) {
+        if (size == maxSize) {
             return false;
         }
         HpNode n = new HpNode(key);
@@ -32,18 +36,15 @@ public class Heap {
         trickleDown(0);
         return root;
     }
- 
-    public int peekMinimum() {
-        return heapArray[0].getKey();
-    }
     
     public boolean change(int index, int newValue) {
         if (index < 0 || index >= size) {
             return false;
         }
-        int oldValue = heapArray[index].getKey();
-        heapArray[index].setKey(newValue);
-        if (oldValue < newValue) {
+        HpNode oldNode = heapArray[index];
+        HpNode newNode = new HpNode(newValue);
+        heapArray[index] = newNode;
+        if (comparator.compare(oldNode, newNode) < 0) {
             trickleUp(index);
         } else {
             trickleDown(index);
@@ -58,18 +59,30 @@ public class Heap {
             left = getLeftChild(i);
             right = getRightChild(i);
             if (right < size 
-                    && heapArray[right].getKey() > heapArray[left].getKey()) {
+                    && comparator.compare(heapArray[right], heapArray[left]) > 0) {
                 larger = right;
             } else {
                 larger = left;
             }
-            if (top.getKey() > heapArray[larger].getKey()) {
+            if (comparator.compare(top, heapArray[larger]) > 0) {
                 break;
             }
             heapArray[i] = heapArray[larger];
             i = larger;
         }
         heapArray[i] = top;
+    }
+    
+
+    private void trickleUp(int index) {
+        HpNode bottom = heapArray[index];
+        int parent = getParent(index);
+        while (index > 0 && comparator.compare(heapArray[parent], bottom) < 0) {
+            heapArray[index] = heapArray[parent];
+            index = parent;
+            parent = getParent(parent);
+        }
+        heapArray[index] = bottom;
     }
     
     /**
@@ -124,7 +137,6 @@ public class Heap {
         }
         System.out.println("\n" + dots + dots);
     }
-    
 
     private int getRightChild(int index) {
         return index * 2 + 2;
@@ -134,18 +146,6 @@ public class Heap {
         return index * 2 + 1;
     }
 
-    private void trickleUp(int index) {
-        HpNode bottom = heapArray[index];
-        int key = bottom.getKey();
-        
-        int parent = getParent(index);
-        while (index > 0 && heapArray[parent].getKey() < key) {
-            heapArray[index] = heapArray[parent];
-            index = parent;
-            parent = getParent(parent);
-        }
-        heapArray[index] = bottom;
-    }
     
     private final int getParent(int index) {
         return (index - 1) / 2;
@@ -153,9 +153,5 @@ public class Heap {
 
     public boolean isEmpty() {
         return size == 0;
-    }
-
-    public boolean isFull() {
-        return size == maxSize;
     }
 }

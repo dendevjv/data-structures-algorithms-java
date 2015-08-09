@@ -1,8 +1,11 @@
-package dsalgjava.ch12.lst1201;
+package dsalgjava.ch12.shared;
 
+/**
+ * Represents a node containing integer key value. Used in a heap ADT.
+ */
 public class HpNode {
     private int key;
-    
+
     public HpNode(int key) {
         this.key = key;
     }
