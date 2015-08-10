@@ -1,24 +1,27 @@
-package dsalgjava.ch08.lst0801;
+package dsalgjava.ch12.progproj.pp1205;
 
-public class NodeStack {
-    private Node[] arr;
+import dsalgjava.ch12.progproj.pp1205.TreeHeap.ThNode;
+
+public class ThNodeStack {
+    private static final int DEFAULT_CAPACITY = 100;
+    
+    private ThNode[] arr;
     private int size;
     
-    NodeStack() {
-        arr = new Node[100];
+    ThNodeStack() {
+        this(DEFAULT_CAPACITY);
+    }
+    
+    public ThNodeStack(int maxSize) {
+        arr = new ThNode[maxSize];
         size = 0;
     }
     
-    public NodeStack(int maxSize) {
-        arr = new Node[maxSize];
-        size = 0;
-    }
-    
-    public void push(Node n) {
+    public void push(ThNode n) {
         arr[size++] = n;
     }
     
-    public Node pop() {
+    public ThNode pop() {
         return arr[--size];
     }
     
@@ -39,13 +42,4 @@ public class NodeStack {
         sb.append("]");
         return sb.toString();
     }
-
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-
-    }
-
 }
