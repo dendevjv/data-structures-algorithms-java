@@ -6,10 +6,10 @@ import java.util.Deque;
 public class Graph {
     private final int MAX_VERTS = 20;
     
-    private Vertex[] vertexList;
+    protected Vertex[] vertexList;
     private int[][] adjMat;
     private int nVerts;
-    private Deque<Integer> stack;
+    protected Deque<Integer> stack;
     
     public Graph() {
         vertexList = new Vertex[MAX_VERTS];
@@ -55,16 +55,16 @@ public class Graph {
             }
         }
         System.out.println();
-        resetVisited();
+        resetVisitedVerteces();
     }
 
-    private void resetVisited() {
+    protected void resetVisitedVerteces() {
         for (int j = 0; j < nVerts; j++) {
             vertexList[j].setVisited(false);
         }
     }
 
-    private int findAdjUnvisitedVertex(int v) {
+    protected int findAdjUnvisitedVertex(int v) {
         for (int j = 0; j < nVerts; j++) {
             if (adjMat[v][j] == 1 && !vertexList[j].isVisited()) {
                 return j;
