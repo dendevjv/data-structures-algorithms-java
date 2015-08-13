@@ -4,11 +4,11 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 public class Graph {
-    private final int MAX_VERTS = 20;
+    protected final int MAX_VERTS = 20;
     
     protected Vertex[] vertexList;
-    private int[][] adjMat;
-    private int nVerts;
+    protected int[][] adjMat;
+    protected int nVerts;
     protected Deque<Integer> stack;
     
     public Graph() {
