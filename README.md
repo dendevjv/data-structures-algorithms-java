@@ -23,3 +23,8 @@ Chapter 10 - 2-3-4 Trees and External Storage (2-3-4 trees, 2-3 trees, b-trees, 
 Chapter 11 - Hash Tables
 
 Chapter 12 - Heaps
+
+Chapter 13 - Graphs
+
+Chapter 14 - Weighted Graphs
+
